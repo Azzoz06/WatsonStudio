@@ -107,7 +107,7 @@ On the New Model page, the `Model builder` model type is selected by default.
 Give a name to the model, `customerchurn` for example.
 The model builder can be fully automated or can leave certain steps to be completed manually. In this tutorial, you use the manual option so that you can review the capabilities of the model builder.
 1. An **IBM Watson Machine Learning Service** is required:
-   1. Click on  `Associate a Machine Learning service instance` ![](images_Lab4ter-WatsonML_Churn/20180925_9ec1c0e2.png) 
+   1. Click on  `Associate a Machine Learning service instance` ![](images_Lab4ter-WatsonML_Churn/20180925_9ec1c0e2.png)
    1. Create a new Lite/Free plan instance: ![](images_Lab4ter-WatsonML_Churn/20180925_c431bf6a.png)
    1. Once created, switch back to the model creating tab and click `[Reload]` ![](images_Lab4ter-WatsonML_Churn/20180925_b642ce64.png) to select your newly created instance.
 1. Make sure you have selected A **Spark Service**
@@ -130,8 +130,8 @@ The **Feature columns** are columns that contain the attributes on which the mac
    ![Models Trained](images_4/1.10-Models_trained.png)
    The ROC (Receiver Operating Characteristic) and PR (Precision Recall) Area Under Curve (AUC) are metrics used to evaluate the accuracy of a model's true positive and true negative predictions, evaluated on the test subset.
 1. Select the `RandomForestClassifier` and click **Save**. When you're prompted to confirm, click **Save** again.
->>>>>>> origin/WatsonStudio_2018-09-26_Madrid
-You're returned to the **Models** summary page, on the **Overview** tab, where your new model is listed.
+
+You're now back to the **Models** summary page, on the **Overview** tab, where your new model is listed.
 
 You now have a trained model, next you will deploy the model to test on out-of-sample data.
 
@@ -139,7 +139,6 @@ You now have a trained model, next you will deploy the model to test on out-of-s
 Before you can use your trained model to make predictions on new data, you must deploy the model. It's time to deploy the model and start to score a few records.
 
 1. From the model summary page, click the **Deployments** tab.  
-<<<<<<< HEAD
 
 2. Click **Add Deployment** link on the upper-right section of the pane.  
 
@@ -201,7 +200,6 @@ Get data from the `new_customer_churn_data.csv` file or copy the data from here 
 9. To test the model click **Predict**: ![](images_4/9-PredictedChurn.png)
    Here the prediction is that customer will not churn at 86% chance.
 1. You can test several out-of-sample records provided as a payload in JSON format. Click on the **document** icon.  
->>>>>>> origin/WatsonStudio_2018-09-26_Madrid
   ![Document](images_4/2.10-DocumentIco.png)  
   Copy-paste the JSON from a text editor and click **Predict**.  
 The results of scoring the tuple (tuples) against the model are shown either in raw data format or as an output chart.
@@ -233,16 +231,19 @@ Copy paste those lines of code to prevent from typing again.
   ![Credentials](images_4/3.7-Credentials.png)
   Copy the credentials using the copy icon on the upper-right corner of the code pane.  
 
-<<<<<<< HEAD
+
 8. Open a `terminal` or a `command line` window.
-=======
-8. On your laptop, open a `terminal` or a `command line` window.
->>>>>>> origin/WatsonStudio_2018-09-26_Madrid
+
 
 9. Set the variables based on the provided credential values.  
   `export WML_SERVICE_CREDENTIALS_USERNAME=<your value>`  
   `export WML_SERVICE_CREDENTIALS_PASSWORD=<your value>`
   `export WML_SERVICE_CREDENTIALS_URL=https://ibm-watson-ml.mybluemix.net`  
+  > **NOTE:** Depending on your operating system the variables are set and accessed differently. The above code works on Linux based systems. 
+  If you are running on **Windows** operating system, use the `set` command to set a variable.
+  Use `%my_variable%` to access it as in the example below:
+  `set WML_SERVICE_CREDENTIALS_USERNAME=<your value>`
+  `curl --basic --user %WML_SERVICE_CREDENTIALS_USERNAME%...`
 
 10. Retrieve your access token running the command below.  
   `curl --basic --user $WML_SERVICE_CREDENTIALS_USERNAME:$WML_SERVICE_CREDENTIALS_PASSWORD $WML_SERVICE_CREDENTIALS_URL/v3/identity/token`  
